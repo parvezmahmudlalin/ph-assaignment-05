@@ -25,9 +25,6 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-
-     <!-- styles -->
-    <link rel="stylesheet" href="./styles/style.css" />
     <!-- font -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -35,7 +32,8 @@
       href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap"
       rel="stylesheet"
     />
-   
+    <!-- styles -->
+    <link rel="stylesheet" href="./styles/style.css" />
   </head>
 
   <body class="bg-base-200 min-h-screen flex items-center justify-center">
@@ -49,14 +47,14 @@
         <p class="text-gray-400">Sign in to manage your issues</p>
       </div>
 
-      <!-- Login form -->
+      <!-- Login Form -->
       <div class="form">
         <div class="card w-full mx-auto">
           <div class="card-body">
             <div>
               <label class="label text-neutral font-bold">Username</label>
               <input
-                
+                id="input-name"
                 type="text"
                 class="input rounded-md w-full"
                 placeholder="Enter Username"
@@ -65,7 +63,7 @@
               <br />
               <label class="label text-neutral font-bold">Password</label>
               <input
-                
+                id="input-pin"
                 type="password"
                 class="input rounded-md w-full"
                 placeholder="Enter Password"
@@ -73,7 +71,7 @@
               <p class="text-[#4A00FF]">Default: admin123</p>
               <br />
               <button
-                
+                id="login-btn"
                 class="btn btn-primary mt-1 rounded-md w-full"
               >
                 Sign In
@@ -83,7 +81,7 @@
         </div>
       </div>
 
-    
+     
       <div class="divider mx-6">
         <span>OR</span>
       </div>
@@ -103,6 +101,6 @@
       </div>
     </div>
 
-   
+    <script src="./script/index.js"></script>
   </body>
 </html>
