@@ -1,13 +1,159 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<body>
-  
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GitHub Issues Tracker | Home</title>
+    <link
+      rel="shortcut icon"
+      href="./assets/github-logo.png"
+      type="image/x-icon"
+    />
+    <!-- tailwind css & daisyUI -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@5"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- font awesome cdn -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!--fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <!-- styles -->
+    <link rel="stylesheet" href="./styles/style.css" />
+  </head>
+  <body class="bg-base-200 min-h-screen">
+    <header class="flex justify-between px-12 md:px-18 py-5 bg-base-100">
+      <div class="logo flex gap-2 items-center">
+        <img class="w-9" src="./assets/github-logo.png" alt="" />
+        <h1 class="font-semibold text-2xl">GitHub Issues Tracker</h1>
+      </div>
 
-  <script src="./script/home.js"></script>
-</body>
+      <div class="flex flex-col lg:flex-row gap-2">
+        <div class="join">
+          <div>
+            <label class="input validator join-item">
+              <input
+                id="search-input-field"
+                type="text"
+                placeholder="Search issues....."
+                required
+              />
+            </label>
+          </div>
+          <button id="search-button" class="btn btn-primary join-item">
+            Search
+          </button>
+        </div>
+
+        <!-- issue button -->
+        <button class="btn btn-primary">
+          <i class="fa-solid fa-plus"></i>New Issue
+        </button>
+      </div>
+    </header>
+
+    <main class="my-14 w-10/12 mx-auto">
+      <!-- heading part -->
+      <div
+        class="bg-base-100 p-6 rounded-lg mb-4 shadow flex flex-col lg:flex-row gap-2"
+      >
+        <button
+          onclick="btnActive('all-button')"
+          id="all-button"
+          class="px-12 btn btn-primary"
+        >
+          All
+        </button>
+        <button
+          onclick="btnActive('open-button')"
+          id="open-button"
+          class="px-12 btn"
+        >
+          Open
+        </button>
+        <button
+          onclick="btnActive('closed-button')"
+          id="closed-button"
+          class="px-12 btn"
+        >
+          Closed
+        </button>
+      </div>
+
+      <!-- spinner part -->
+      <div id="loading-spinner" class="flex justify-center items-center py-10 hidden">
+        <span class="loading loading-bars loading-xl"></span>
+      </div>
+
+      <!--main container-->
+      <section id="issues-main-container">
+        <!-- main issues-->
+        <div
+          class="bg-base-100 p-6 rounded-t-lg flex justify-between items-center shadow-lg"
+        >
+          <div class="left flex items-center gap-1">
+            <div class="bg-base-200 rounded-full p-2">
+              <img src="./assets/Aperture.png" alt="" />
+            </div>
+            <div>
+              <h2 class="text-xl font-semibold">
+                <span id="issue-count-text">50</span> Issues
+              </h2>
+              <p class="text-gray-400">Track and manage your project issues</p>
+            </div>
+          </div>
+          <div class="right flex gap-5">
+            <div class="flex items-center gap-2">
+              <img class="w-3 h-3" src="./assets/green.png" alt="" />
+              <p>Open</p>
+            </div>
+            <div class="flex items-center gap-2">
+              <img class="w-3 h-3" src="./assets/purple.png" alt="" />
+              <p>Closed</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Main Card Box -->
+        <div class="shadow-lg">
+          <!-- cards container -->
+          <div
+            id="issues-cards-container"
+            class="grid items-stretch grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 p-6 rounded-b-lg bg-base-200"
+          >
+            <!-- Card -->
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Modal -->
+    <dialog id="issue-details-modal" class="modal modal-bottom sm:modal-middle">
+      <div class="modal-box">
+        <div id="issue-details-container" class="space-y-3"></div>
+
+        <div class="modal-action">
+          <form method="dialog">
+            <!-- if there is a button in form, it will close the modal -->
+            <button class="btn btn-primary">Close</button>
+          </form>
+        </div>
+      </div>
+    </dialog>
+
+    <script src="./script/home.js"></script>
+  </body>
 </html>
